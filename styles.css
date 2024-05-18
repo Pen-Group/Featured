@@ -6,4 +6,46 @@
     left: 25%; 
     padding: 8px;
     background-color: var(--background-2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 16px -4px;
+}
+
+.hoverBOX {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0%;
+    transition: opacity 0.15s;
+    background: var(--background-1-trans);
+}
+
+.hoverBOX > * {
+    padding: 0.5rem;
+    background-color: #4c97ff;
+    border-radius: 0.5rem;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    pointer-events: auto;
+    transition: filter 0.15s;
+    filter: drop-shadow(0px 1px 3px #00000075);
+  }
+
+.hoverBOX:hover {
+    opacity: 100%;
+}
+
+.hoverBOX-Scratch {
+    background-color: #ffa04c;
 }
