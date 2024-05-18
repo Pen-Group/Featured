@@ -1,0 +1,9 @@
+.pageContent {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    top: 30%;
+    left: 25%; 
+    padding: 8px;
+    background-color: var(--background-2);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pen-group.github.io/shared/css/defaultCSS.css">
+    <link rel="stylesheet" href="https://pen-group.github.io/shared/css/themes.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light" style="transition: all 100ms;">
+    <div class="penPlus-topBar">
+      <img class="penPlus-themes" id="theme-button" src="https://pen-group.github.io/shared/images/moon.svg" alt="">
+    </div>
+    <h1 style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%);">Featured Projects!</h1>
+    <h3 style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -100%);">For all of those scratch projects that are made with Pen+ ❤️</h3>
+    <div class="pageContent" id="pageElements">
+        No Featured Projects Yet!
+    </div>
+    
+    <script>
+        document.body.className = localStorage.getItem("theme") || "theme-dark";
+
+        document.getElementById("theme-button").onclick = () => {
+            switch (document.body.className) {
+            case "theme-light":
+                document.body.className = "theme-dark";
+                break;
+            
+            default:
+                document.body.className = "theme-light";
+                break;
+            }
+            localStorage.setItem("theme", document.body.className)
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
