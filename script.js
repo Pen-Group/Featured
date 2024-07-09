@@ -33,23 +33,33 @@ const addProject = (projectData) => {
         hoverBox.appendChild(linkButton);
     }
 
-    Object.keys(projectData["External-Links"]).forEach(Link => {
-        const link = projectData["External-Links"][Link];
+    if (projectData["External-Links"]) {
+        Object.keys(projectData["External-Links"]).forEach(Link => {
+            const link = projectData["External-Links"][Link];
 
+            const linkButton = document.createElement("a");
+            linkButton.href = link;
+            linkButton.innerText = `View on ${Link}`;
+            linkButton.style.color = "#ffffff";
+            
+            if (Link == "Scratch") {
+                linkButton.innerText = `Original Version`;
+            }
+            linkButton.className = `hoverBOX-${Link}`;
+
+            hoverBox.appendChild(linkButton);
+        })
+    }
+
+    if (projectData["Project-File"]) {
         const linkButton = document.createElement("a");
-        linkButton.href = link;
-        linkButton.innerText = `View on ${Link}`;
+        linkButton.href = `https://turbowarp.org/?project_url=${window.location.href}/Projects/${encodeURIComponent(projectData.Author)}/${encodeURIComponent(projectData.Name)}/${projectData["Project-File"]}`;
+        linkButton.innerText = "Open in TurboWarp";
         linkButton.style.color = "#ffffff";
-        
-        if (Link == "Scratch") {
-            linkButton.innerText = `Original Version`;
-        }
-        linkButton.className = `hoverBOX-${Link}`;
+        linkButton.style.backgroundColor = "#ff6666";
 
         hoverBox.appendChild(linkButton);
-    })
-
-    //window.location.href = 
+    }
 }
 
 fetch("FeaturedProjects.json")
