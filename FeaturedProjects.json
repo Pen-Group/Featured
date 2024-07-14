@@ -7,7 +7,8 @@
         "In-Site":true,
         "External-Links":{
             "Scratch":"https://scratch.mit.edu/projects/861541218/"
-        }
+        },
+        "Type":"Project"
     },
     {
         "Name":"Voxel Test",
@@ -15,6 +16,7 @@
         "Description":"A voxel world generation demo in pen+",
         "Author-Link":"https://www.youtube.com/channel/UC0xUJS2XrZ8c6J7noLerDCw",
         "In-Site":true,
-        "Project-File":"VOXELTEST.sb3"
+        "Project-File":"VOXELTEST.sb3",
+        "Type":"Project"
     }
 ]

@@ -1,4 +1,12 @@
 const projectsDiv = document.getElementById("pageElements");
+const searchDiv = document.getElementById("searchHelpers");
+
+const searchParams = {
+    Type:"",
+    Name:""
+}
+
+const projectListing = [];
 
 const addProject = (projectData) => {
     let projectDiv = document.createElement("div");
@@ -53,13 +61,23 @@ const addProject = (projectData) => {
 
     if (projectData["Project-File"]) {
         const linkButton = document.createElement("a");
-        linkButton.href = `https://turbowarp.org/?project_url=${window.location.href}/Projects/${encodeURIComponent(projectData.Author)}/${encodeURIComponent(projectData.Name)}/${projectData["Project-File"]}`;
+        if (projectData.Type && projectData.Type == "Shader") {
+            linkButton.href = `https://pen-group.github.io/penPlus-shader-editor/Source/?project_url=${window.location.href}/Projects/${encodeURIComponent(projectData.Author)}/${encodeURIComponent(projectData.Name)}/${projectData["Project-File"]}`;
+        }
+        else {
+            linkButton.href = `https://turbowarp.org/?project_url=${window.location.href}/Projects/${encodeURIComponent(projectData.Author)}/${encodeURIComponent(projectData.Name)}/${projectData["Project-File"]}`;
+        }
         linkButton.innerText = "Open in TurboWarp";
         linkButton.style.color = "#ffffff";
-        linkButton.style.backgroundColor = "#ff6666";
+        linkButton.className = `hoverBOX-Turbowarp`;
 
         hoverBox.appendChild(linkButton);
     }
+
+    projectListing.push({
+        data:projectData,
+        element:projectDiv
+    });
 }
 
 fetch("FeaturedProjects.json")
@@ -67,10 +85,70 @@ fetch("FeaturedProjects.json")
   .then((text) => {
     projectsDiv.innerHTML = ``;
     let Projects = JSON.parse(text);
-    console.log(Projects);
 
     for (let projectID = 0; projectID < Projects.length; projectID++) {
-      console.log(Projects[projectID]);
       addProject(Projects[projectID]);
     }
   });
+
+const refreshProjectListing = () => {
+    
+    projectsDiv.style.gridTemplateColumns =  "1fr 1fr";
+    
+    projectsDiv.innerHTML = ``;
+
+    const keys = Object.keys(searchParams);
+
+    projectListing.forEach(project => {
+        let projectValid = true;
+        //Search through keys
+        keys.forEach(key => {
+            if (project.data[key]) {
+                if (!project.data[key].toLowerCase().includes(searchParams[key].toLowerCase())) {
+                    projectValid = false;
+                }
+            }
+        })
+
+        if (projectValid) {
+            projectsDiv.appendChild(project.element);
+        }
+    });
+
+    if (projectsDiv.children.length == 0) {
+        projectsDiv.innerHTML = `<h3 class="centered" style="margin-top: 48px; margin-bottom: 48px;">No projects match your search. 😕</h3>`;
+        projectsDiv.style.gridTemplateColumns =  "1fr";
+    }
+}
+
+const handleInputTypes = (element) => {
+    switch (element.type) {
+        case "text":
+            element.addEventListener("change", () => {
+                searchParams.Name = element.value;
+                refreshProjectListing();
+            })
+            break;
+    
+        default:
+            break;
+    }
+}
+
+Array.from(searchDiv.children).forEach(child => {
+    switch (child.localName) {
+        case "button":
+            child.onclick = () => {
+                searchParams.Type = child.getAttribute("typeSetter");
+                refreshProjectListing();
+            }
+            break;
+
+        case "input":
+            handleInputTypes(child);
+            break;
+    
+        default:
+            break;
+    }
+})

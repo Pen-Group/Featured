@@ -1,14 +1,31 @@
 .pageContent {
     width: 50%;
     height: auto;
-    position: absolute;
     top: 30%;
-    left: 25%; 
     padding: 8px;
     background-color: var(--background-2);
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 16px -4px;
+    margin-left: 25%;
+    margin-right: 25%; 
+}
+
+.pageContentSearch {
+    width: 50%;
+    height: auto;
+    top: 30%;
+    padding: 10px;
+
+    background-color: var(--background-2);
+
+    margin: 16px -4px;
+    margin-left: 25%;
+    margin-right: 25%; 
+
+    margin-bottom: 0px; 
+    border-bottom: 8px 
+    solid var(--background-3);
 }
 
 .hoverBOX {
@@ -44,8 +61,4 @@
 
 .hoverBOX:hover {
     opacity: 100%;
-}
-
-.hoverBOX-Scratch {
-    background-color: #ffa04c;
 }

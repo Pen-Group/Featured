@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Featured</title>
     <link rel="stylesheet" href="https://pen-group.github.io/shared/css/defaultCSS.css">
     <link rel="stylesheet" href="https://pen-group.github.io/shared/css/themes.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="programStyles.css">
 </head>
 <body class="theme-light" style="transition: all 100ms;">
     <div class="penPlus-topBar">
       <img class="penPlus-themes" id="theme-button" src="https://pen-group.github.io/shared/images/moon.svg" alt="">
     </div>
-    <h1 style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%);">Featured Projects!</h1>
-    <h3 style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -100%);">For all of those scratch projects that are made with Pen+ ❤️</h3>
-    <div class="pageContent" id="pageElements">
+    <h1 class="centered" style="margin-top: 48px;">Featured Projects!</h1>
+    <h3 class="centered">For all of those scratch projects that are made with Pen+ ❤️</h3>
+    <div class="pageContentSearch" id="searchHelpers">
+        <input type="text" name="Search" id="searchPageElements" placeholder="Type to Search">
+         Show:
+        <button typeSetter="">All</button>
+        <button typeSetter="Project">Projects</button>
+        <button typeSetter="Shader">Shaders</button>
+    </div>
+    <div class="pageContent" style="margin-top: 0px;" id="pageElements">
         No Featured Projects Yet!
     </div>
     
@@ -36,5 +44,9 @@
     </script>
 
     <script src="script.js"></script>
+
+    <footer class="centered">
+        <p><a href="https://forms.gle/dKa3TJ93sUDtw4kV6">Submit project</a></p>
+    </footer>
 </body>
 </html>
