@@ -9,3 +9,10 @@
 .hoverBOX-ShaderEditor {
     background-color: #0fbd8c;
 }
+
+.hoverBOX-ShovelRocks {
+    background-color: #7c7c7c;
+    background-image: url("https://raw.githubusercontent.com/TheShovel/theshovel.github.io/main/imageSources/Brush.PNG");
+    background-size: 32px 32px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}

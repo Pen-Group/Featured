@@ -18,5 +18,16 @@
         "In-Site":true,
         "Project-File":"VOXELTEST.sb3",
         "Type":"Project"
+    },
+    {
+        "Name":"Co-Funk",
+        "Author":"TheShovel",
+        "Description":"Friday Night Funkin, but in PenguinMod!",
+        "Author-Link":"https://theshovel.rocks/#home",
+        "In-Site":false,
+        "External-Links":{
+            "ShovelRocks":"https://theshovel.rocks/co-funk/"
+        },
+        "Type":"Project"
     }
 ]
