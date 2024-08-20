@@ -29,5 +29,16 @@
             "ShovelRocks":"https://theshovel.rocks/co-funk/"
         },
         "Type":"Project"
+    },
+    {
+        "Name":"ARDEREPHOBIA",
+        "Author":"ObviousAlexC",
+        "Description":"A rougelike made for a game jam.",
+        "Author-Link":"https://www.youtube.com/channel/UC0xUJS2XrZ8c6J7noLerDCw",
+        "In-Site":true,
+        "External-Links":{
+            "Itch":"https://obviousalexc.itch.io/arderephobia"
+        },
+        "Type":"Project"
     }
 ]
