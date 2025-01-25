@@ -40,5 +40,16 @@
             "Itch":"https://obviousalexc.itch.io/arderephobia"
         },
         "Type":"Project"
+    },
+    {
+        "Name":"MotionSprite",
+        "Author":"TheShovel",
+        "Description":"PenguinMod motion animation maker",
+        "Author-Link":"https://theshovel.rocks/#home",
+        "In-Site":false,
+        "External-Links":{
+            "ShovelRocks":"https://theshovel.rocks/MotionSprite/"
+        },
+        "Type":"Project"        
     }
 ]
